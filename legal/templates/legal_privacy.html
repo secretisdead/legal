@@ -1,0 +1,46 @@
+{% extends 'layout.html' %}
+{% block title %}Privacy policy{% endblock %}
+{% block content %}
+	<h1>Privacy policy</h1>
+	<p>This is just my personal site and I don't actually want your data, but since some information is stored during normal use of the site this is a simple privacy policy to describe how that information is handled.</p>
+
+	<h2>Cookies and local storage</h2>
+	<p>This site uses cookies to confirm that you have read and agreed to the <a href="{{ url_for('legal.terms') }}">terms of use</a>, and to allow you to stay signed in if you have created an account.</p>
+	<p>If you do not consent to the use of cookies, or you do not agree to the terms of use, some sections of the site that require agreement to the terms of use will be inaccessible.</p>
+	<p>You may revoke your consent to the use of cookies at any time by visiting the <a href="{{ url_for('legal.revoke_cookie_consent') }}">revoke cookie consent page</a>.</p>
+	<p>Local storage is used to display indications of new activity since your last visit, and to store personal preferences.</p>
+	<p>No personally identifiable information is collected if you don't create an account</p>
+
+	<h2>Public account information</h2>
+	<p>If you choose to enter a display name, it will be publicly visible throughout the site wherever your profile is referenced.</p>
+	<p>If you choose to enter a user name, it will be used publicly as your custom site address.</p>
+	<p>Neither user name or display name are required, and you can remove either of them at any time from <a href="{{ url_for('accounts_signed_in.settings') }}">your settings</a>.</p>
+	<p>Your account is given a unique 22-digit ID, which is publicly accessible in relation to your account throughout the site.</p>
+	<p>Any site permissions you've been granted are publicly visible on your <a href="{{ url_for('accounts_signed_out.profile') }}">profile page</a>.</p>
+	<p>Some user-contributed content is publicly associated with your account, such as which stickers you've collected, which media you've placed stickers on, and tegaki you've submitted, etc.</p>
+
+	<h2>Non-public account information</h2>
+	<p>Some information may be stored that is not publicly visible, and may be accessible only to site staff, yourself, or limited users belonging to certain staff-like permission groups.</p>
+	<p>A unique identifier linked to each third-party service you use to sign in (e.g., Discord, Google, Patreon, Steam, Twitch, Twitter, etc.) is stored when you register or connect that account, and is visible only to site managers.</p>
+	<p>You can remove any third-party service from your account at any time from <a href="{{ url_for('accounts_signed_in.settings') }}">your settings</a>.</p>
+	<p>Identifiers for each active session (composed of a session token, a reference to the browser and platform of the session, the last active time of the session, and the IP address of the session) are stored to validate your sign-ins and allow you to review and close any of your active sessions from <a href="{{ url_for('accounts_signed_in.settings') }}">your settings</a>, and are visible only to site managers and yourself.</p>
+	<p>When you close a session it remains stored for a period of time to provide an opportunity to review recent sessions, before being pruned automatically.</p>
+	<p>If local ID or mail authentication are enabled and you choose to use them for authentication, only a one-way hash of your ID or mail is stored and is not viewable even to site administrators, so please don't forget it.</p>
+	{#TODO no longer the case? pretty much everything is publicly associated with an account if you're signed in now <p>Some user content isn't publicly associated with your account, such as comments you've made, but is still accessible by site staff.</p> #}
+
+	<h2>Site content and user participation</h2>
+	<p>While you may be able to contribute content which is displayed on the site in various ways, you may not always be able to modify that content once submitted.</p>
+	<p>You're able to completely remove some content you contribute, such as stickers you've placed on media, and tegaki you've posted.</p>
+	<p>Some content you contribute can't be changed or removed except by staff, such as comments, so please be thoughtful when contributing.</p>
+
+	<h2>Account deactivation</h2>
+	<p>You can deactivate your account at any time from <a href="{{ url_for('accounts_signed_in.settings') }}">your settings</a>.</p>
+	<p>When your account is deactivated, any stickers you've collected will be lost, your user name and display name (if you've entered them) will be removed and made available for re-use, and any of your sessions which are still open will be automatically closed.</p>
+	<p>Any stickers you have placed, tegaki you have posted, and comments you have made will remain on the site but will be de-associated with your account.</p>
+	<p>If you deactivate your account, any third-party sign-in services you've connected will be removed.</p>
+
+	<h2>Information stored for site operation</h2>
+	<p>Aside from information stored to provide user services, some information is stored to facilitate general site operation.</p>
+	<p>Users banned from the site will have their associated IP addresses stored to prevent site access.</p>
+	<p>When an account is deactivated by staff, all third-party sign-in service identifiers associated with that account are stored to prevent them being used to create new accounts.</p>
+{% endblock %}

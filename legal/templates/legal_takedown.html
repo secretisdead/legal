@@ -1,0 +1,37 @@
+{% extends 'layout.html' %}
+{% block title %}Takedown process{% endblock %}
+{% block content %}
+	<h1>Takedown process</h1>
+	<p>Because this site is mainly an archive of personal work, the majority of the content uploaded is likely to have been created by the uploader; but because some content may include derivative works or may be submitted by general users, this notification process is provided for your use.</p>
+	<p>We will promptly remove materials from the site in accordance with the Digital Millennium Copyright Act ("DMCA") if properly notified that the materials infringe a third party's copyright.</p>
+
+	<h2>Filing a DMCA Notice</h2>
+	<p>If you believe that your work has been copied in a way that constitutes copyright infringement, please provide us with a written notice containing the following information:</p>
+	<ol>
+		<li>Your name, address, telephone number, and email address (if any).</li>
+		<li>A description of the copyrighted work that you claim has been infringed.</li>
+		<li>A description of where on the site the material that you claim is infringing may be found, sufficient for us to locate the material (e.g., the URL).</li>
+		<li>A statement that you have a good faith belief that the use of the copyrighted work is not authorized by the copyright owner, its agent, or the law.</li>
+		<li>A statement by you UNDER PENALTY OF PERJURY that the information in your notice is accurate and that you are the copyright owner or authorized to act on the copyright owner's behalf.</li>
+		<li>Your electronic or physical signature.</li>
+	</ol>
+	<p>You may submit this notice through email to {{ g.legal['takedown_contact_mail'] }}</p>
+
+	<h2>Filing a DMCA Counter-Notification</h2>
+	<p>If you believe that your material has been removed by mistake or misidentification, please provide us with a written counter-notification containing the following information:</p>
+	<ol>
+		<li>Your name, address, and telephone number.</li>
+		<li>A description of the material that was removed and the location on the site (e.g., the URL) where it previously appeared.</li>
+		<li>A statement UNDER PENALTY OF PERJURY that you have a good faith belief that the material was removed or disabled as a result of mistake or misidentification.</li>
+		<li>A statement that you consent to the jurisdiction of the Federal District Court for the judicial district in which your address is located, or if your address is outside of the United States, any judicial district in which the owner of this site may be found, and that you will accept service of process from the person who filed the original DMCA notice or an agent of that person.</li>
+		<li>Your electronic or physical signature.</li>
+	</ol>
+	<p>You may submit this information through email to {{ g.legal['takedown_contact_mail'] }}.</p>
+	<p>Please note that we will send any complete counter-notifications we receive to the person who submitted the original DMCA notice. That person may elect to file a lawsuit against you for copyright infringement. If we do not receive notice that a lawsuit has been filed within ten (10) business days after we provide notice of your counter-notification, we will restore the removed materials. Until that time, your materials will remain removed. We will provide a copy of the original DMCA takedown notice upon request.</p>
+
+	<h2>Warning</h2>
+	<p>In filing a DMCA notice or counter-notification, please make sure that you have complied with all of the above requirements. If we request additional information necessary to make your DMCA notice or counter-notification complete, please provide that information promptly. If you fail to comply with all of these requirements, your DMCA notice or counter-notification may not be processed further.</p>
+	<p>In addition, please make sure that all of the information you provide is accurate. <strong>UNDER SECTION 512(f) OF THE COPYRIGHT ACT, 17 U.S.C. ยง 512(f), ANY PERSON WHO KNOWINGLY MATERIALLY MISREPRESENTS THAT MATERIAL OR ACTIVITY IS INFRINGING OR WAS REMOVED OR DISABLED BY MISTAKE OR MISIDENTIFICATION MAY BE SUBJECT TO LIABILITY</strong>.</p>
+	<p>We may disclose any communications concerning DMCA notices or other intellectual property complaints with third parties, including the users who have posted the allegedly infringing material, and may provide DMCA notices to <a href="https://chillingeffects.org/">Chilling Effects</a>.</p>
+	<p>If you have questions about the legal requirements of a DMCA notice, please contact an attorney or see Section 512(c)(3) of the U.S. Copyright Act, 17 U.S.C. ยง 512(c)(3), for more information. If you have questions about the legal requirements of a DMCA counter-notification, please contact an attorney or see Section 512(g)(3) of the U.S. Copyright Act, 17 U.S.C. ยง 512(g)(3), for more information.</p>
+{% endblock %}
