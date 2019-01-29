@@ -1,0 +1,11 @@
+{
+	"takedown_contact_mail": "your@email.here",
+	"terms_agree": {
+		"name": "terms_agree",
+		"lifetime": 31557600,
+		"path": "",
+		"path": "/",
+		"domain": "",
+		"secure": false
+	}
+}
