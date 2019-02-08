@@ -34,7 +34,7 @@
 			</li>
 		</ol>
 		{% if agreement_form %}
-			<form method="get">
+			<form{% if form_uri %} action="{{ form_uri }}"{% endif %} method="get">
 				<input type="submit" value="I Agree">
 				<input type="hidden" name="terms_agree" value="1">
 				{% for key, value in request.args.items() %}

@@ -38,7 +38,16 @@ def terms_agreed():
 @legal.route('/terms')
 def terms(agreement_form=False, **kwargs):
 	if 'terms_agree' not in request.args:
-		return render_template('legal_terms.html', agreement_form=agreement_form)
+		# try to submit form to whatever the underlying endpoint was
+		if not kwargs:
+			form_uri = request.url
+		else:
+			form_uri = url_for(request.endpoint, **kwargs)
+		return render_template(
+			'legal_terms.html',
+			agreement_form=agreement_form,
+			form_uri=form_uri,
+		)
 	@after_this_request
 	def set_consent_cookie(response):
 		opts = {
