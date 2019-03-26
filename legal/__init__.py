@@ -25,6 +25,7 @@ def terms_agreed():
 			'Goooglebot',
 			'Discordbot',
 			'Twitterbot',
+			'The Lounge IRC Client',
 		]:
 		if -1 != useragent.find(botname):
 			return True
