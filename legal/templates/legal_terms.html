@@ -2,6 +2,23 @@
 {% block title %}Terms of use{% endblock %}
 {% block content %}
 	<div class="legal_terms_of_use">
+		{% if agreement_form %}
+			<script 
+				type="module">
+				'use strict';
+				function getCookie(name) {
+					let value = "; " + document.cookie;
+					let parts = value.split("; " + name + "=");
+					if (parts.length == 2) return parts.pop().split(";").shift();
+				}
+				/* an attempt to circumvent aggressive browser caching 
+				   after terms have already been accepted */
+				if (getCookie('{{ g.legal['terms_agree']['name'] }}')) {
+					document.querySelector('.legal_terms_of_use').style.display = 'none';
+					location.reload(true);
+				}
+			</script>
+		{% endif %}
 		<h1>Terms of use</h1>
 		<ol>
 			<li>
@@ -34,12 +51,9 @@
 			</li>
 		</ol>
 		{% if agreement_form %}
-			<form{% if form_uri %} action="{{ form_uri }}"{% endif %} method="get">
+			<form action="{{ url_for('legal.accept_terms') }}" method="get">
 				<input type="submit" value="I Agree">
-				<input type="hidden" name="terms_agree" value="1">
-				{% for key, value in request.args.items() %}
-					<input type="hidden" name="{{ key }}" value="{{ value }}">
-				{% endfor %}
+				<input type="hidden" name="redirect" value="{{ redirect }}">
 			</form>
 		{% endif %}
 	</div>

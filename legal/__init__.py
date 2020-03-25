@@ -39,17 +39,14 @@ def terms_agreed():
 
 @legal.route('/terms')
 def terms(agreement_form=False, **kwargs):
-	if 'terms_agree' not in request.args:
-		# try to submit form to whatever the underlying endpoint was
-		if not kwargs:
-			form_uri = request.url
-		else:
-			form_uri = url_for(request.endpoint, **kwargs)
-		return render_template(
-			'legal_terms.html',
-			agreement_form=agreement_form,
-			form_uri=form_uri,
-		)
+	return render_template(
+		'legal_terms.html',
+		agreement_form=agreement_form,
+		redirect=str(request.url),
+	)
+
+@legal.route('/accept-terms')
+def accept_terms():
 	@after_this_request
 	def set_consent_cookie(response):
 		opts = {
@@ -63,16 +60,17 @@ def terms(agreement_form=False, **kwargs):
 			opts['path'] = g.legal['terms_agree']['path']
 		response.set_cookie(g.legal['terms_agree']['name'], **opts)
 		return response
-	# try to pass through to whatever the underlying endpoint was
-	passed_kwargs = {}
-	for key, value in request.args.items():
-		if key != 'terms_agree':
-			passed_kwargs[key] = value
-	for key, value in kwargs.items():
-		passed_kwargs[key] = value
-	if not passed_kwargs:
-		return redirect(request.url, code=303)
-	return redirect(url_for(request.endpoint, **passed_kwargs), code=303)
+	redirect_uri = url_for('legal.terms')
+	if 'redirect' in request.args:
+		redirect_uri = str(request.args['redirect'])
+	return redirect(url_for('legal.post_accept_terms', redirect=redirect_uri), code=303)
+
+@legal.route('/post-accept-terms')
+def post_accept_terms():
+	redirect_uri = url_for('legal.terms')
+	if 'redirect' in request.args:
+		redirect_uri = request.args['redirect']
+	return redirect(redirect_uri, code=303)
 
 @legal.route('/rules')
 def rules():
